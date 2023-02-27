@@ -20,17 +20,17 @@ export class AddressesResolver {
     }
 
     @Query(() => Address, {name: 'address'})
-    findOne(@Args('id', {type: () => Int}) id: number) {
+    findOne(@Args('id', {type: () => Int}) id: string) {
         return this.addressesService.findOne(id);
     }
 
     @Mutation(() => Address)
     updateAddress(@Args('updateAddressInput') updateAddressInput: UpdateAddressInput) {
-        return this.addressesService.update(parseInt(updateAddressInput.id), updateAddressInput);
+        return this.addressesService.update(updateAddressInput.id, updateAddressInput);
     }
 
     @Mutation(() => Address)
-    removeAddress(@Args('id', {type: () => Int}) id: number) {
+    removeAddress(@Args('id', {type: () => Int}) id: string) {
         return this.addressesService.remove(id);
     }
 }

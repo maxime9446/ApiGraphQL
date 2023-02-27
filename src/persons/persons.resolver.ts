@@ -3,13 +3,11 @@ import {PersonsService} from './persons.service';
 import {Person} from './entities/person.entity';
 import {CreatePersonInput} from './dto/create-person.input';
 import {UpdatePersonInput} from './dto/update-person.input';
-import {AddressesService} from '../addresses/addresses.service';
 
 @Resolver(() => Person)
 export class PersonsResolver {
     constructor(
         private personsService: PersonsService,
-        private addressesService: AddressesService,
     ) {
     }
 
@@ -24,7 +22,7 @@ export class PersonsResolver {
     }
 
     @Query(() => Person, {name: 'person'})
-    findOne(@Args('id', {type: () => Int}) id: number) {
+    findOne(@Args('id', {type: () => Int}) id: string) {
         return this.personsService.findOne(id);
     }
 
@@ -34,7 +32,7 @@ export class PersonsResolver {
     }
 
     @Mutation(() => Person)
-    removePerson(@Args('id', {type: () => Int}) id: number) {
+    removePerson(@Args('id', {type: () => Int}) id: string) {
         return this.personsService.remove(id);
     }
 }
