@@ -1,8 +1,9 @@
-import { Module } from '@nestjs/common';
-import { AddressesService } from './addresses.service';
-import { AddressesResolver } from './addresses.resolver';
+import {Module} from '@nestjs/common';
+import {PrismaService} from '../prisma/prisma.service';
+import {AddressesService} from './addresses.service';
 
 @Module({
-  providers: [AddressesResolver, AddressesService]
+    providers: [AddressesService, PrismaService],
 })
-export class AddressesModule {}
+export class AddressesModule {
+}
