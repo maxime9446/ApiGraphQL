@@ -9,6 +9,9 @@ input CreateAddressInput {
   """pays"""
   country: String!
 
+  """id de l'adresse"""
+  id: String!
+
   """rue"""
   street: String!
 
