@@ -3,8 +3,20 @@
 # ------------------------------------------------------
 
 type Address {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  """ville"""
+  city: String!
+
+  """pays"""
+  country: String!
+
+  """id"""
+  id: String!
+
+  """rue"""
+  street: String!
+
+  """code postal"""
+  zipcode: Int!
 }
 
 input CreateAddressInput {
@@ -53,8 +65,17 @@ type Mutation {
 }
 
 type Person {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  """date d'anniversaire de la personne"""
+  birthday: DateTime!
+
+  """genre de la personne"""
+  gender: String!
+
+  """id de la personne"""
+  id: Int!
+
+  """nom de la personne"""
+  name: String!
 }
 
 type Query {
@@ -66,30 +87,34 @@ type Query {
 
 input UpdateAddressInput {
   """ville"""
-  city: String
+  city: String!
 
   """pays"""
-  country: String
-  id: Int!
+  country: String!
+
+  """id"""
+  id: String!
 
   """rue"""
-  street: String
+  street: String!
 
   """code postal"""
-  zipcode: Int
+  zipcode: Int!
 }
 
 input UpdatePersonInput {
   """adresse de la personne"""
-  address: CreateAddressInput
+  address: CreateAddressInput!
 
   """date d'anniversaire de la personne"""
-  birthday: DateTime
+  birthday: DateTime!
 
   """genre de la personne"""
-  gender: String
+  gender: String!
+
+  """id de la personne"""
   id: Int!
 
   """nom de la personne"""
-  name: String
+  name: String!
 }

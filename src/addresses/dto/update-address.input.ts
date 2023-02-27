@@ -3,6 +3,8 @@ import {Field, InputType, Int, PartialType} from '@nestjs/graphql';
 
 @InputType()
 export class UpdateAddressInput extends PartialType(CreateAddressInput) {
+    @Field(() => String, {description: 'id'})
+    id: string;
     @Field(() => String, {description: 'rue'})
     street: string;
 
